@@ -1,7 +1,7 @@
 package week01
 
 import (
-	. "github.com/TylerTang06/-algorithm015/util"
+	"github.com/TylerTang06/-algorithm015/util"
 )
 
 /**
@@ -11,14 +11,14 @@ import (
  *     Next *ListNode
  * }
  */
-func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+func mergeTwoLists(l1 *util.ListNode, l2 *util.ListNode) *util.ListNode {
 	if l1 == nil {
 		return l2
 	}
 	if l2 == nil {
 		return l1
 	}
-	l := &ListNode{Next: nil}
+	l := &util.ListNode{Next: nil}
 	head := l
 	for l2 != nil {
 		if l1 == nil {
