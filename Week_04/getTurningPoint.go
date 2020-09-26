@@ -1,7 +1,5 @@
 package week04
 
-import "fmt"
-
 func getTurningPoint(nums []int) int {
 	if nums == nil || len(nums) <= 1 {
 		return 0
@@ -13,17 +11,22 @@ func getTurningPoint(nums []int) int {
 	l, r := 0, len(nums)-1
 	for l < r {
 		mid := l + (r-l)/2
-		fmt.Println(l, mid, r)
-		if nums[mid] >= nums[l] && nums[mid] <= nums[r] {
+		if nums[mid] == nums[l] || nums[mid] == nums[r] {
+			if nums[l] > nums[r] {
+				return nums[r]
+			}
 			return nums[l]
 		}
 		if nums[mid] > nums[l] {
+			if nums[mid] < nums[r] {
+				return nums[l]
+			}
 			l = mid + 1
+		} else {
+			if nums[mid] < nums[r] {
+				r = mid - 1
+			}
 		}
-		if nums[mid] < nums[r] {
-			r = mid - 1
-		}
-		fmt.Println(l, r)
 	}
 
 	return nums[l]
