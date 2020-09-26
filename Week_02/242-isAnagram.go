@@ -9,6 +9,7 @@ func isAnagram(s string, t string) bool {
 			myMap[str] = 1
 		}
 	}
+
 	for _, str := range t {
 		if _, ok := myMap[str]; ok {
 			myMap[str]--
@@ -22,5 +23,6 @@ func isAnagram(s string, t string) bool {
 	if len(myMap) != 0 {
 		return false
 	}
+
 	return true
 }

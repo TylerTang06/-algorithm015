@@ -4,6 +4,7 @@ func trap(height []int) int {
 	if height == nil || len(height) <= 2 {
 		return 0
 	}
+
 	maxL, maxR, sum := 0, 0, 0
 	left, right := 1, len(height)-2
 	for i := 1; i < len(height)-1; i++ {
@@ -25,5 +26,6 @@ func trap(height []int) int {
 			right--
 		}
 	}
+
 	return sum
 }

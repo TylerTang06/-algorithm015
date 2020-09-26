@@ -4,6 +4,7 @@ func nthUglyNumber(n int) int {
 	dp := make([]int, n)
 	dp[0] = 1
 	a, b, c := 0, 0, 0
+
 	for i := 1; i < n; i++ {
 		dp[i] = min(dp[a]*2, dp[b]*3, dp[c]*5)
 
@@ -18,6 +19,7 @@ func nthUglyNumber(n int) int {
 			c++
 		}
 	}
+
 	return dp[n-1]
 }
 
@@ -28,5 +30,6 @@ func min(x, y, z int) int {
 	if x > z {
 		return z
 	}
+
 	return x
 }

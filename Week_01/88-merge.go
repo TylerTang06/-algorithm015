@@ -4,6 +4,7 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 	if nums1 == nil || nums2 == nil || len(nums1) < m+n {
 		return
 	}
+
 	end := m + n - 1
 	end1, end2 := m-1, n-1
 	for end1 >= 0 && end2 >= 0 {

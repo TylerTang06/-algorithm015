@@ -4,6 +4,7 @@ func rotate(nums []int, k int) {
 	if nums == nil || len(nums) <= 1 || k == 0 || k == len(nums) {
 		return
 	}
+
 	count := 0
 	for stIndex := 0; count < len(nums); stIndex++ {
 		temp, nxtIndx := nums[stIndex], (k+stIndex)%len(nums)

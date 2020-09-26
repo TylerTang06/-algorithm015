@@ -18,6 +18,7 @@ func mergeTwoLists(l1 *util.ListNode, l2 *util.ListNode) *util.ListNode {
 	if l2 == nil {
 		return l1
 	}
+
 	l := &util.ListNode{Next: nil}
 	head := l
 	for l2 != nil {
@@ -35,5 +36,6 @@ func mergeTwoLists(l1 *util.ListNode, l2 *util.ListNode) *util.ListNode {
 	if l1 != nil {
 		l.Next = l1
 	}
+
 	return head.Next
 }

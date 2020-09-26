@@ -4,6 +4,7 @@ func moveZeroes(nums []int) {
 	for nums == nil || len(nums) <= 1 {
 		return
 	}
+
 	zeroIndex, valIndex := 0, 0
 	for valIndex < len(nums) {
 		if nums[valIndex] != 0 {

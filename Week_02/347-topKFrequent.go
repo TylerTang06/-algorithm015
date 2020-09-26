@@ -34,6 +34,7 @@ func topKFrequent(nums []int, k int) []int {
 	if nums == nil && len(nums) < k {
 		return []int{}
 	}
+
 	for _, val := range nums {
 		if _, ok := myMap[val]; ok {
 			myMap[val]++
@@ -41,6 +42,7 @@ func topKFrequent(nums []int, k int) []int {
 			myMap[val] = 1
 		}
 	}
+
 	myHeap := &MyMapHeap{}
 	heap.Init(myHeap)
 	for key, val := range myMap {
@@ -53,5 +55,6 @@ func topKFrequent(nums []int, k int) []int {
 			}
 		}
 	}
+
 	return *myHeap
 }

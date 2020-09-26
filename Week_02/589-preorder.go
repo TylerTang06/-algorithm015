@@ -16,9 +16,11 @@ func preorder(root *util.Node) []int {
 	if root == nil {
 		return []int{}
 	}
+
 	res := []int{root.Val}
 	for _, node := range root.Children {
 		res = append(res, preorder(node)...)
 	}
+
 	return res
 }

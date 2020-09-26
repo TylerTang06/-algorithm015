@@ -4,6 +4,7 @@ func groupAnagrams(strs []string) [][]string {
 	if strs == nil || len(strs) == 0 {
 		return [][]string{}
 	}
+
 	// count: current size of the res array
 	res, count := [][]string{}, 0
 	// the value is the index of anagrams string existed in res
