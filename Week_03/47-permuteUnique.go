@@ -22,6 +22,7 @@ func recursionPU(nums, path []int, used []bool, res [][]int) [][]int {
 		res = append(res, path)
 		return res
 	}
+
 	for i := 0; i < len(nums); i++ {
 		if used[i] {
 			continue
@@ -38,5 +39,6 @@ func recursionPU(nums, path []int, used []bool, res [][]int) [][]int {
 			path = append([]int{}, path[:len(path)-1]...)
 		}
 	}
+
 	return res
 }

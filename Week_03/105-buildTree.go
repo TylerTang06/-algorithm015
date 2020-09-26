@@ -14,6 +14,7 @@ func buildTree(preorder []int, inorder []int) *util.TreeNode {
 	if len(preorder) == 0 {
 		return nil
 	}
+
 	rootVal := &util.TreeNode{Val: preorder[0], Left: nil, Right: nil}
 	i := 0
 	for ; i < len(inorder); i++ {
