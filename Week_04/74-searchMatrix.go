@@ -1,7 +1,7 @@
 package week04
 
 // binary search
-// other idea, for example, narrow the range of search
+// other idea, for example, narrow the range of searching
 func searchMatrix(matrix [][]int, target int) bool {
 	if matrix == nil || len(matrix) == 0 || len(matrix[0]) == 0 {
 		return false
