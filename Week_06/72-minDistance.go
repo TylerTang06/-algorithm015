@@ -1,6 +1,8 @@
 package week06
 
-import "sort"
+import (
+	"sort"
+)
 
 func minDistance(word1 string, word2 string) int {
 	if word1 == "" {
