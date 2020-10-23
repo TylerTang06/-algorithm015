@@ -9,18 +9,18 @@ func numDecodings(s string) int {
 
 	// dp[i] = dp[i-1] if s[i] == '0'
 	// dp[i] += dp[i-2]
-	dp := make([]int, len(s)+1)
+	dp := make([]int, len(s))
 	dp[0] = 1
 
 	for i := 1; i < len(s); i++ {
-		if s[i] == '0' {
+		if s[i] != '0' {
 			dp[i] = dp[i-1]
 		}
-		dp[i] = dp[i-1]
+
 		num, _ := strconv.Atoi(string(s[i-1]) + string(s[i]))
 		if num <= 26 && num >= 10 {
-			if i == 2 {
-				dp[i] = dp[i-1]
+			if i == 1 {
+				dp[i]++
 			} else {
 				dp[i] += dp[i-2]
 			}
