@@ -23,9 +23,9 @@ func (this *LRUCache) Get(key int) int {
 
 	this.cache.Remove(v)
 	val := v.Value.([2]int)
-	this.cache.PushBack(val[1])
+	this.cache.PushBack(val)
 	this.val[key] = this.cache.Back()
-	return val[0]
+	return val[1]
 }
 
 func (this *LRUCache) Put(key int, value int) {
