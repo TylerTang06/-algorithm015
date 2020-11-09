@@ -15,7 +15,7 @@ func longestValidParentheses(s string) int {
 				} else {
 					dp[i] = 2
 				}
-			} else {
+			} else { // s[i-1] == ')'
 				if i-dp[i-1]-1 >= 0 && s[i-dp[i-1]-1] == '(' {
 					if i-dp[i-1]-2 >= 0 {
 						dp[i] = dp[i-1] + dp[i-dp[i-1]-2] + 2
