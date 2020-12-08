@@ -7,38 +7,33 @@ func permuteUnique(nums []int) [][]int {
 		return [][]int{nums}
 	}
 
-	// sort
+	var res [][]int
 	sort.Ints(nums)
-	used := make([]bool, len(nums))
-	for i := 0; i < len(used); i++ {
-		used[i] = false
-	}
-
-	return recursionPU(nums, []int{}, used, [][]int{})
+	permuteUniqueRec(nums, []int{}, make([]bool, len(nums)), &res)
+	return res
 }
 
-func recursionPU(nums, path []int, used []bool, res [][]int) [][]int {
-	if len(nums) == len(path) {
-		res = append(res, path)
-		return res
+func permuteUniqueRec(nums, path []int, used []bool, res *[][]int) {
+	if len(path) == len(nums) {
+		*res = append(*res, path)
+		return
 	}
 
 	for i := 0; i < len(nums); i++ {
 		if used[i] {
 			continue
 		}
-		// !used[i-1]
-		if i > 0 && nums[i] == nums[i-1] && !used[i-1] {
+		if i > 0 && nums[i] == nums[i-1] && used[i-1] {
+			// used[i] = true
 			continue
 		}
-		if !used[i] {
-			used[i] = true
-			path = append(path, nums[i])
-			res = recursionPU(nums, path, used, res)
-			used[i] = false
-			path = append([]int{}, path[:len(path)-1]...)
-		}
+
+		path = append(path, nums[i])
+		used[i] = true
+		permuteUniqueRec(nums, path, used, res)
+		used[i] = false
+		path = append([]int{}, path[:len(path)-1]...)
 	}
 
-	return res
+	return
 }

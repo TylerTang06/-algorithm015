@@ -8,6 +8,7 @@ func twoSum(nums []int, target int) []int {
 	myMap := map[int]int{}
 	for index, value := range nums {
 		if _, ok := myMap[target-value]; ok {
+			// map k: v -> value: index
 			return []int{myMap[target-value], index}
 		}
 		myMap[value] = index

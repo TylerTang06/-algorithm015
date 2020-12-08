@@ -1,20 +1,15 @@
 package week01
 
 func moveZeroes(nums []int) {
-	for nums == nil || len(nums) <= 1 {
+	if nums == nil || len(nums) <= 1 {
 		return
 	}
 
-	zeroIndex, valIndex := 0, 0
-	for valIndex < len(nums) {
-		if nums[valIndex] != 0 {
-			nums[zeroIndex] = nums[valIndex]
-			zeroIndex++
+	for i, j := 0, 0; j < len(nums); j++ {
+		if nums[j] == 0 {
+			continue
 		}
-		valIndex++
-	}
-	for zeroIndex < len(nums) {
-		nums[zeroIndex] = 0
-		zeroIndex++
+		nums[i], nums[j] = nums[j], nums[i]
+		i++
 	}
 }
