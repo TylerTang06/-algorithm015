@@ -12,30 +12,24 @@ import (
  * }
  */
 func mergeTwoLists(l1 *util.ListNode, l2 *util.ListNode) *util.ListNode {
-	if l1 == nil {
-		return l2
-	}
-	if l2 == nil {
-		return l1
-	}
-
 	l := &util.ListNode{Next: nil}
-	head := l
+	cur := l
 	for l2 != nil {
 		if l1 == nil {
-			l1, l2 = l2, nil
-			continue
+			l1, l2 = l2, l1
+			break
 		}
 		if l1.Val < l2.Val {
-			l.Next, l1 = l1, l1.Next
+			cur.Next, l1 = l1, l1.Next
 		} else {
-			l.Next, l2 = l2, l2.Next
+			cur.Next, l2 = l2, l2.Next
 		}
-		l = l.Next
-	}
-	if l1 != nil {
-		l.Next = l1
+		cur = cur.Next
 	}
 
-	return head.Next
+	if l1 != nil {
+		cur.Next = l1
+	}
+
+	return l.Next
 }
